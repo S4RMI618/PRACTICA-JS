@@ -31,7 +31,7 @@ function ejecutarOpcion() {
          mostrarDiagonalP();
          break;
       case "4":
-
+         mostrarDiagonalI();
          break;
       case "5":
 
@@ -96,7 +96,7 @@ function mostrarDiagonalP() {
       for (let c = 0; c < matriz.length; c++) {
          //Construir nombre
          let nombre = 'd-f' + f + 'c' + c;
-         if (f == c) {
+         if (matriz[f][c] == matriz[f][f]) {
             document.getElementById(nombre).innerText = matriz[f][c];
          }else {
             document.getElementById(nombre).innerText = '';
@@ -108,16 +108,28 @@ function mostrarDiagonalP() {
 
 function mostrarDiagonalI() {
    for (let f = 0; f < matriz.length; f++) {
-      for (let c = 0; c < matriz.length; c++) {
+      for (let c = 0; c < matriz.length; c++) { 
          //Construir nombre
          let nombre = 'd-f' + f + 'c' + c;
-         if (f == c) {
+         if (matriz[f][c] == matriz[0][4]) {
             document.getElementById(nombre).innerText = matriz[f][c];
+         }
+         else if (matriz[f][c] == matriz[1][3]) {
+            document.getElementById(nombre).innerText = matriz[f][c];
+         }
+         else if (matriz[f][c] == matriz[2][2]) {
+            document.getElementById(nombre).innerText = matriz[f][c];
+         }
+         else if (matriz[f][c] == matriz[3][1]) {
+            document.getElementById(nombre).innerText = matriz[f][c];
+         }
+         else if (matriz[f][c] == matriz[4][0]) {
+            document.getElementById(nombre).innerText = matriz[f][c];
+         
          }else {
             document.getElementById(nombre).innerText = '';
          }
-         
-      }   
+      }  
    } 
 }
 
