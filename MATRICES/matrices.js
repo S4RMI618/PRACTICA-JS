@@ -34,16 +34,16 @@ function ejecutarOpcion() {
          mostrarDiagonalI();
          break;
       case "5":
-
+         mostrarSuperiorD('d');
          break;
       case "6":
-
+         mostrarSuperiorI('i');
          break;
       case "7":
-
+         mostrarInferiorI('i')
          break;
       case "8":
-
+         mostrarInferiorD('d')
          break;
  
       default:
@@ -94,9 +94,8 @@ function limpiarMatrices() {
 function mostrarDiagonalP() {
    for (let f = 0; f < matriz.length; f++) {
       for (let c = 0; c < matriz.length; c++) {
-         //Construir nombre
          let nombre = 'd-f' + f + 'c' + c;
-         if (matriz[f][c] == matriz[f][f]) {
+         if (f == c) {
             document.getElementById(nombre).innerText = matriz[f][c];
          }else {
             document.getElementById(nombre).innerText = '';
@@ -109,31 +108,67 @@ function mostrarDiagonalP() {
 function mostrarDiagonalI() {
    for (let f = 0; f < matriz.length; f++) {
       for (let c = 0; c < matriz.length; c++) { 
-         //Construir nombre
          let nombre = 'd-f' + f + 'c' + c;
-         if (matriz[f][c] == matriz[0][4]) {
+         if ((f+c) == matriz.length - 1){
             document.getElementById(nombre).innerText = matriz[f][c];
-         }
-         else if (matriz[f][c] == matriz[1][3]) {
-            document.getElementById(nombre).innerText = matriz[f][c];
-         }
-         else if (matriz[f][c] == matriz[2][2]) {
-            document.getElementById(nombre).innerText = matriz[f][c];
-         }
-         else if (matriz[f][c] == matriz[3][1]) {
-            document.getElementById(nombre).innerText = matriz[f][c];
-         }
-         else if (matriz[f][c] == matriz[4][0]) {
-            document.getElementById(nombre).innerText = matriz[f][c];
-         
          }else {
             document.getElementById(nombre).innerText = '';
          }
-      }  
+      }
    } 
 }
 
+function mostrarSuperiorD(l) {
+   for (let f = 0; f < matriz.length; f++) {
+      for (let c = 0; c < matriz.length; c++) {
+         let nombre = l + '-f' + f + 'c' + c;
+         if (f == 0) {
+            document.getElementById(nombre).innerText = matriz[f][c];
+         }else {
+            document.getElementById(nombre).innerText = '';
+         }
+      }
+   }
+}
 
+function mostrarSuperiorI(l) {
+   for (let f = 0; f < matriz.length; f++) {
+      for (let c = 0; c < matriz.length; c++) {
+         let nombre = l + '-f' + f + 'c' + c;
+         if (f == 0) {
+            document.getElementById(nombre).innerText = matriz[f][c];
+         }else {
+            document.getElementById(nombre).innerText = '';
+         }
+      }
+   }
+}
+
+function mostrarInferiorI(l) {
+   for (let f = 0; f < matriz.length; f++) {
+      for (let c = 0; c < matriz.length; c++) {
+         let nombre = l + '-f' + f + 'c' + c;
+         if (f == 4) {
+            document.getElementById(nombre).innerText = matriz[f][c];
+         }else {
+            document.getElementById(nombre).innerText = '';
+         }
+      }
+   }
+}
+
+function mostrarInferiorD(l) {
+   for (let f = 0; f < matriz.length; f++) {
+      for (let c = 0; c < matriz.length; c++) {
+         let nombre = l + '-f' + f + 'c' + c;
+         if (f == 4) {
+            document.getElementById(nombre).innerText = matriz[f][c];
+         }else {
+            document.getElementById(nombre).innerText = '';
+         }
+      }
+   }
+}
 /**
  * Genera un numero entre min y max
  * @param {int} min: valor mínimo 

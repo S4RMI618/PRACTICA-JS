@@ -13,8 +13,7 @@ matriz = [
 
 for i in range(len(matriz)):  
     for j in range(len(matriz)):
-        f = 0
-        c = 4
-        if matriz[i][j] == matriz[f][c]:
-            print(f,c)
+        if (i+j) == (len(matriz)-1):
+            print(matriz[i][j])
+    
     
