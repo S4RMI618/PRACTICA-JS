@@ -28,10 +28,10 @@ function ejecutarOpcion() {
          break;
       case "3":
          /* limpiarMatrices(); */
-         mostrarDiagonalP();
+         mostrarDiagonalP('d');
          break;
       case "4":
-         mostrarDiagonalI();
+         mostrarDiagonalI('i');
          break;
       case "5":
          mostrarSuperiorD('d');
@@ -74,11 +74,16 @@ function mostrarMatriz(l) {
          let nombre = l + '-f' + f + 'c' + c;
          //mostrar en la casilla  matriz[f][c];
          document.getElementById(nombre).innerText = matriz[f][c];
+            let name = 'd-f' + f + 'c' + c;
+            //mostrar en la casilla  matriz[f][c];
+            document.getElementById(name).innerText = matriz[f][c];
       }   
    }   
 }
 
-
+/**
+ *Limpiar las casillas de los dos lados
+ */
 function limpiarMatrices() {
    for (let f = 0; f < matriz.length; f++) {
       for (let c = 0; c < matriz.length; c++) {
@@ -91,7 +96,11 @@ function limpiarMatrices() {
    }   
 }
 
-function mostrarDiagonalP() {
+/**
+ * 
+ * @param {char} l : indica la casilla para mostrar
+ */
+function mostrarDiagonalP(l) {
    for (let f = 0; f < matriz.length; f++) {
       for (let c = 0; c < matriz.length; c++) {
          let nombre = 'd-f' + f + 'c' + c;
@@ -100,12 +109,15 @@ function mostrarDiagonalP() {
          }else {
             document.getElementById(nombre).innerText = '';
          }
-         
       }   
    }   
 }
 
-function mostrarDiagonalI() {
+/**
+ * 
+ * @param {char} l : indica la casilla para mostrar 
+ */
+function mostrarDiagonalI(l) {
    for (let f = 0; f < matriz.length; f++) {
       for (let c = 0; c < matriz.length; c++) { 
          let nombre = 'd-f' + f + 'c' + c;
@@ -118,6 +130,10 @@ function mostrarDiagonalI() {
    } 
 }
 
+/**
+ * 
+ * @param {char} l : indica la casilla para mostrar
+ */
 function mostrarSuperiorD(l) {
    for (let f = 0; f < matriz.length; f++) {
       for (let c = 0; c < matriz.length; c++) {
@@ -131,6 +147,10 @@ function mostrarSuperiorD(l) {
    }
 }
 
+/**
+ * 
+ * @param {char} l : indica la casilla para mostrar
+ */
 function mostrarSuperiorI(l) {
    for (let f = 0; f < matriz.length; f++) {
       for (let c = 0; c < matriz.length; c++) {
@@ -144,6 +164,10 @@ function mostrarSuperiorI(l) {
    }
 }
 
+/**
+ * 
+ * @param {char} l : indica la casilla para mostrar
+ */
 function mostrarInferiorI(l) {
    for (let f = 0; f < matriz.length; f++) {
       for (let c = 0; c < matriz.length; c++) {
@@ -157,6 +181,10 @@ function mostrarInferiorI(l) {
    }
 }
 
+/**
+ * 
+ * @param {char} l : indica la casilla para mostrar
+ */
 function mostrarInferiorD(l) {
    for (let f = 0; f < matriz.length; f++) {
       for (let c = 0; c < matriz.length; c++) {
