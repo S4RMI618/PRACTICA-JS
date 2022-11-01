@@ -11,9 +11,9 @@ matriz = [
 
 
 
-for i in range(len(matriz)):  
-    for j in range(len(matriz)):
-        if (i+j) == (len(matriz)-1):
-            print(matriz[i][j])
+
+for f in range(len(matriz)):  
+    for c in range(len(matriz) - f):
+        print(matriz[f][c])
     
     

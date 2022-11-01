@@ -27,25 +27,30 @@ function ejecutarOpcion() {
          mostrarMatriz('d');
          break;
       case "3":
-         /* limpiarMatrices(); */
+         limpiarMatrices();
          mostrarDiagonalP('d');
          break;
       case "4":
+         limpiarMatrices()
          mostrarDiagonalI('i');
          break;
       case "5":
+         limpiarMatrices()
          mostrarSuperiorD('d');
          break;
       case "6":
-         mostrarSuperiorI('i');
+         limpiarMatrices()
+         mostrarSuperiorI('d');
          break;
       case "7":
-         mostrarInferiorI('i')
+         limpiarMatrices()
+         mostrarInferiorI('d')
          break;
       case "8":
+         limpiarMatrices()
          mostrarInferiorD('d')
          break;
- 
+
       default:
          break;
    }
@@ -59,7 +64,7 @@ function generarMatriz() {
    for (let f = 0; f < matriz.length; f++) {
       for (let c = 0; c < matriz.length; c++) {
          matriz[f][c] = generarNumero(10, 100);
-      }   
+      }
    }
 }
 
@@ -74,11 +79,8 @@ function mostrarMatriz(l) {
          let nombre = l + '-f' + f + 'c' + c;
          //mostrar en la casilla  matriz[f][c];
          document.getElementById(nombre).innerText = matriz[f][c];
-            let name = 'd-f' + f + 'c' + c;
-            //mostrar en la casilla  matriz[f][c];
-            document.getElementById(name).innerText = matriz[f][c];
-      }   
-   }   
+      }
+   }
 }
 
 /**
@@ -90,10 +92,8 @@ function limpiarMatrices() {
          //Crear variable para almacenar posición en matriz
          let nombre = 'd-f' + f + 'c' + c;
          document.getElementById(nombre).innerText = '';
-         let nombre2 = 'i-f' + f + 'c' + c;
-         document.getElementById(nombre2).innerText = '';
-      }     
-   }   
+      }
+   }
 }
 
 /**
@@ -102,15 +102,9 @@ function limpiarMatrices() {
  */
 function mostrarDiagonalP(l) {
    for (let f = 0; f < matriz.length; f++) {
-      for (let c = 0; c < matriz.length; c++) {
-         let nombre = 'd-f' + f + 'c' + c;
-         if (f == c) {
-            document.getElementById(nombre).innerText = matriz[f][c];
-         }else {
-            document.getElementById(nombre).innerText = '';
-         }
-      }   
-   }   
+      let nombre = 'd-f' + f + 'c' + f;
+      document.getElementById(nombre).innerText = matriz[f][f];
+   }
 }
 
 /**
@@ -119,15 +113,10 @@ function mostrarDiagonalP(l) {
  */
 function mostrarDiagonalI(l) {
    for (let f = 0; f < matriz.length; f++) {
-      for (let c = 0; c < matriz.length; c++) { 
-         let nombre = 'd-f' + f + 'c' + c;
-         if ((f+c) == matriz.length - 1){
-            document.getElementById(nombre).innerText = matriz[f][c];
-         }else {
-            document.getElementById(nombre).innerText = '';
-         }
-      }
-   } 
+      let c = matriz.length - 1 - f;
+      let nombre = 'd-f' + f + 'c' + c;
+      document.getElementById(nombre).innerText = matriz[f][c];
+   }
 }
 
 /**
@@ -136,13 +125,9 @@ function mostrarDiagonalI(l) {
  */
 function mostrarSuperiorD(l) {
    for (let f = 0; f < matriz.length; f++) {
-      for (let c = 0; c < matriz.length; c++) {
+      for (let c = f; c < matriz.length; c++) {
          let nombre = l + '-f' + f + 'c' + c;
-         if (f == 0) {
-            document.getElementById(nombre).innerText = matriz[f][c];
-         }else {
-            document.getElementById(nombre).innerText = '';
-         }
+         document.getElementById(nombre).innerText = matriz[f][c];
       }
    }
 }
@@ -153,13 +138,9 @@ function mostrarSuperiorD(l) {
  */
 function mostrarSuperiorI(l) {
    for (let f = 0; f < matriz.length; f++) {
-      for (let c = 0; c < matriz.length; c++) {
+      for (let c = 0; c < matriz.length - f; c++) {
          let nombre = l + '-f' + f + 'c' + c;
-         if (f == 0) {
-            document.getElementById(nombre).innerText = matriz[f][c];
-         }else {
-            document.getElementById(nombre).innerText = '';
-         }
+         document.getElementById(nombre).innerText = matriz[f][c];
       }
    }
 }
@@ -170,13 +151,9 @@ function mostrarSuperiorI(l) {
  */
 function mostrarInferiorI(l) {
    for (let f = 0; f < matriz.length; f++) {
-      for (let c = 0; c < matriz.length; c++) {
+      for (let c = 0; c <= f; c++) {
          let nombre = l + '-f' + f + 'c' + c;
-         if (f == 4) {
-            document.getElementById(nombre).innerText = matriz[f][c];
-         }else {
-            document.getElementById(nombre).innerText = '';
-         }
+         document.getElementById(nombre).innerText = matriz[f][c];
       }
    }
 }
@@ -187,13 +164,9 @@ function mostrarInferiorI(l) {
  */
 function mostrarInferiorD(l) {
    for (let f = 0; f < matriz.length; f++) {
-      for (let c = 0; c < matriz.length; c++) {
+      for (let c = matriz.length - 1 - f; c < matriz.length; c++) {
          let nombre = l + '-f' + f + 'c' + c;
-         if (f == 4) {
-            document.getElementById(nombre).innerText = matriz[f][c];
-         }else {
-            document.getElementById(nombre).innerText = '';
-         }
+         document.getElementById(nombre).innerText = matriz[f][c];
       }
    }
 }
